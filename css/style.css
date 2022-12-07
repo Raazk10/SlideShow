@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	background: rgb(24, 23, 23);
+	color: #fff;
+	line-height: 1.6;
+
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+
+}
+
+.header {
+	height: 100vh;
+	position: relative;
+	background-image: linear-gradient(rgba(34, 33, 33, 0.6),
+			rgba(34, 33, 33, 0.6)),
+		url("../assets/hero.jpg");
+	background-size: cover;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	padding: 2rem 2rem;
+}
+
+.header-container {
+	width: 1200px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.header-container-inner {
+	width: 50%;
+}
+
+.logo {
+	font-size: 1.8rem;
+	color: #e67e22;
+}
+
+/********************************
+		** navigation **
+**********************************/
+
+.main-nav-list {
+
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 4.8rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+	display: inline-block;
+	text-decoration: none;
+	color: rgb(243, 242, 246);
+	font-weight: 500;
+	font-size: 1.4rem;
+	transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+	color: #cf711f;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+	padding: 1.2rem 2.4rem;
+	border-radius: 9px;
+	color: #fff;
+	background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+	background-color: #cf711f;
+}
+
+h1 {
+	font-size: 52px;
+	margin-bottom: 32px;
+	line-height: 1.05;
+}
+
+p {
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 48px;
+	font-weight: 200;
+	color: #e6fcf5;
+}
+
+/********************************
+		** mobile-navigation **
+**********************************/
+.button-mobile-navigation {
+	border: none;
+	background: none;
+	cursor: pointer;
+	display: none;
+
+}
+
+.icon-mobile-nav {
+	height: 4.8rem;
+	width: 4.8rem;
+	color: rgb(15, 6, 20);
+
+}
+
+.icon-mobile-nav[name="close-outline"] {
+	display: none;
+}
+
+@media(max-width:69em) {
+	html {
+		font-size: 50%
+	}
+
+
+	.button-mobile-navigation {
+		display: block;
+		z-index: 9999;
+	}
+
+	.main-nav {
+		background-color: rgba(136, 132, 132, 0.9);
+		-webkit-backdrop-filter: blur(5px);
+		backdrop-filter: blur(10px);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		transform: translateX(100%);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.5s ease-in;
+
+		/* Hide navigation */
+		/* Allows NO transitions at all */
+		/* display: none; */
+
+		/* 1) Hide it visually */
+		opacity: 0;
+
+		/* 2) Make it unaccessible to mouse and keyboard */
+		pointer-events: none;
+
+		/* 3) Hide it from screen readers */
+		visibility: hidden;
+	}
+
+	.nav-open .main-nav {
+		opacity: 1;
+		pointer-events: auto;
+		visibility: visible;
+		transform: translateX(0);
+	}
+
+	.nav-open .icon-mobile-navigation[name="close-outline"] {
+		display: block;
+	}
+
+	.nav-open .icon-mobile-navigation[name="menu-outline"] {
+
+		display: none;
+	}
+
+	.main-nav-list {
+		flex-direction: column;
+		gap: 4.8rem;
+	}
+
+	.main-nav-link:link,
+	.main-nav-link:visited {
+		font-size: 3rem;
+	}
+}
+
+
+/********************************
+		** Slider Styling **
+**********************************/
+
+
+.carousel {
+	max-width: 1000px;
+	position: relative;
+
+	margin: -150px auto;
+	margin-bottom: 100px;
+
+
+
+}
+
+.carousel__item {
+	width: 1000px;
+	background-color: rgba(4, 3, 0, 0.521);
+	padding: 50px;
+	border-radius: 8px;
+	position: relative;
+	font-weight: 400;
+	font-size: 50px;
+	box-shadow: 0 5px 5px rgba(160, 135, 224, 0.2);
+	display: none;
+
+
+
+}
+
+.carousel__item--selected {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 86px;
+
+
+
+
+
+}
+
+.image {
+	height: 250px;
+	border-radius: 8px;
+	transform: scale(1.5);
+	box-shadow: 0 5px 5px rgba(160, 135, 224, 0.2);
+	margin-left: 50px;
+
+}
+
+
+
+.title {
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-align: center;
+}
+
+.paragraph {
+	font-size: 1rem;
+	font-weight: 200;
+	line-height: 1.5;
+	color: #e6fcf5;
+	text-align: justify;
+
+}
+
+
+
+/********************************
+** Next and Previous Navigation **
+**********************************/
+
+
+.slideButton {
+	background-color: #fff;
+	border: none;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.slideButton--previousButton {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translate(-50%, -50%);
+
+}
+
+.slideButton--nextButton {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translate(50%, -50%);
+}
+
+.slideButton:hover {
+	background-color: #087f5b;
+}
+
+.slideButton:hover .button-icon {
+	stroke: #fff;
+}
+
+.button-icon {
+	height: 24px;
+	width: 24px;
+	stroke: #087f5b;
+
+}
+
+/********************************
+	* Bottom Button Navigation *
+**********************************/
+
+
+.carousel__navigation {
+	width: 100%;
+	padding: 20px;
+	position: absolute;
+	bottom: -60px;
+	left: 100px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+
+}
+
+.carousel__button {
+	width: 18px;
+	height: 18px;
+
+	background-color: #fff;
+	border: 2px solid #087f5b;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: 1s;
+}
+
+.carousel__button:hover {
+	background-color: #070707;
+}
+
+.carousel__button--selected {
+	background-color: #087f5b;
+}
